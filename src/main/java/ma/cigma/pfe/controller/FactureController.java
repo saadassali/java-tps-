@@ -8,6 +8,7 @@ public class FactureController {
     IFactureService fservice;
 
     public FactureController(IFactureService fservice) {
+
         this.fservice = fservice;
     }
 

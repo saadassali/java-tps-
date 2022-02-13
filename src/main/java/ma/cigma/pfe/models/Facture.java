@@ -17,6 +17,9 @@ public class Facture {
 
     Date date;
     double amount;
+    @OneToMany
+    LigneFacture ligneFacture;
+
     public Facture(Date date,double amount) {
         this.date = date;
         this.amount=amount;
