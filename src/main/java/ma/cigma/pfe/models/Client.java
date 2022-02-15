@@ -1,9 +1,6 @@
 package ma.cigma.pfe.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,6 +9,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,9 +17,9 @@ public class Client {
     String nom;
     String prenom;
     String tel;
-    @Enumerated(EnumType.STRING)
-    Genre genre;
-    @OneToOne(cascade = CascadeType.ALL)
-    Adresse adresse;
+//    @Enumerated(EnumType.STRING)
+//    Genre genre;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    Adresse adresse;
 
 }

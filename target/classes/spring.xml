@@ -12,8 +12,22 @@
     <bean id="controller" class="ma.cigma.pfe.controller.FactureController" scope="prototype"
              >
             <constructor-arg  ref="service"/>
-        </bean>
 
+</bean>
+    <bean id="Clientdao"   class="ma.cigma.pfe.dao.ClientDAO" scope="prototype">
+
+    </bean>
+    <bean id="Clientservice" class="ma.cigma.pfe.service.ClientService"
+          scope="prototype">
+        <!--            <property name="fdao" ref="dao"></property>-->
+        <constructor-arg ref="Clientdao"/>
+    </bean>
+
+    <bean id="Clientcontroller" class="ma.cigma.pfe.controller.ClientController" scope="prototype"
+    >
+        <constructor-arg  ref="Clientservice"/>
+
+    </bean>
 <!--        <bean id="controller" class="ma.cigma.pfe.controller.FactureController" scope="prototype">-->
 <!--&lt;!&ndash;        <property name="fservice" ref="service"/>&ndash;&gt;-->
 <!--&lt;!&ndash;        <constructor-arg index="0" ref="serv,     ice" />&ndash;&gt;-->

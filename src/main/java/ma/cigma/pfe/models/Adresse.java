@@ -19,6 +19,5 @@ public class Adresse {
     String avenue;
     String ville;
     String pays;
-    @OneToOne
-    Client client;
+
 }

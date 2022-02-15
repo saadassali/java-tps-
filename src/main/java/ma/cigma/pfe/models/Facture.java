@@ -6,10 +6,12 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
 public class Facture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +20,7 @@ public class Facture {
     Date date;
     double amount;
     @OneToMany
-    LigneFacture ligneFacture;
+    List<LigneFacture> ligneFacture;
 
     public Facture(Date date,double amount) {
         this.date = date;

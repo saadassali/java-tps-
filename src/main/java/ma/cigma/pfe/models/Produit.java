@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -19,7 +20,7 @@ public class Produit {
     String name;
     float price;
     @OneToMany
-    LigneFacture ligneFacture;
+    List<LigneFacture> ligneFacture;
 
 
 }

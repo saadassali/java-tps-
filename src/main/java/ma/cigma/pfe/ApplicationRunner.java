@@ -1,7 +1,11 @@
 package ma.cigma.pfe;
 
+import ma.cigma.pfe.controller.ClientController;
 import ma.cigma.pfe.controller.FactureController;
+import ma.cigma.pfe.models.Adresse;
+import ma.cigma.pfe.models.Client;
 import ma.cigma.pfe.models.Facture;
+import ma.cigma.pfe.models.Genre;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -14,28 +18,18 @@ public class ApplicationRunner {
                 ClassPathXmlApplicationContext("spring.xml");
         FactureController fctrl = (FactureController)
                 context.getBean("controller");
-//       Facture f = new Facture(new Date(),20.05);
-////        Facture f2 = new Facture(new Date(),23.05);
-////        Facture f3 = new Facture(new Date(),25.05);
-////        Facture f4 = new Facture(new Date(),30.05);
-//        fctrl.save(f);
-//        System.out.println("id facture ="+f.getId())  ;
-////       fctrl.delete(f.getId());
-//       fctrl.update(f.getId(),93.99);
+        Client c =new Client(1,"assali",
+                "saad","0707109204"
+//                ,
+//                Genre.m,
+//                new Adresse(1,"zine salame",
+//                "casa","maroc")
+        );
+        ClientController cCtrl=(ClientController) context.getBean("Clientcontroller");
 
+        c= cCtrl.save(c);
 
-        Facture f2 =  fctrl.find(4);
-        System.out.println(f2.toString());
-//
-//
-//        System.out.println("save done");
-//
-//        Facture f5 = fctrl.read(2);
-//        Facture f6 = new Facture(new Date(),9999999.05);;
-//
-//        f5.toString();
-      //  fctrl.delete(3);
-        //fctrl.update(f6);
+        c.toString();
 
 
     }
