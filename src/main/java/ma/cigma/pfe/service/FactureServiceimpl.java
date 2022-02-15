@@ -2,7 +2,12 @@ package ma.cigma.pfe.service;
 
 import ma.cigma.pfe.dao.IfactureDAO;
 import ma.cigma.pfe.models.Facture;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Service
+@Transactional
 public class FactureServiceimpl implements IFactureService {
 
 
@@ -13,11 +18,8 @@ public class FactureServiceimpl implements IFactureService {
     public FactureServiceimpl() {
     }
 
-
+    @Autowired
     IfactureDAO fdao;
-
-
-
 
     @Override
     public Facture save(Facture f) {

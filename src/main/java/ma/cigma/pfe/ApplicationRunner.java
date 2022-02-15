@@ -19,7 +19,7 @@ public class ApplicationRunner {
         ApplicationContext context= new
                 ClassPathXmlApplicationContext("spring.xml");
         FactureController fctrl = (FactureController)
-                context.getBean("controller");
+                context.getBean("factureCtrl");
         List<Adresse> adresseList=new ArrayList<Adresse>();
         adresseList.add(new Adresse("zine salame",
                 "casa","maroc"));
@@ -30,7 +30,7 @@ public class ApplicationRunner {
                 "saad","0707109204", Genre.m);
         Client c2 =new Client("ahmed",
                 "assali","0561238456"   , Genre.m        );
-        ClientController cCtrl=(ClientController) context.getBean("Clientcontroller");
+        ClientController cCtrl=(ClientController) context.getBean("clientCtrl");
         c1.setAdresse(adresseList);
 
         c1= cCtrl.save(c1);

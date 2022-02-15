@@ -2,14 +2,18 @@ package ma.cigma.pfe.dao;
 
 import ma.cigma.pfe.models.Client;
 import ma.cigma.pfe.models.Facture;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
+
+@Repository
 
 public class ClientDAO implements IClientDAO{
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("unit_factures");
-    EntityManager em = emf.createEntityManager();
+@PersistenceContext
+EntityManager em;
 
     @Override
     public Client save(Client c) {

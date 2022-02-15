@@ -21,7 +21,6 @@ public class Client {
     @Enumerated(EnumType.STRING)
     Genre genre;
     @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "client")
-     @JoinColumn
     List<Adresse> adresse;
 
     public Client(String nom, String prenom, String tel, Genre genre) {

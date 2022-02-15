@@ -1,14 +1,17 @@
 package ma.cigma.pfe.dao;
 
 import ma.cigma.pfe.models.Facture;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
+import javax.persistence.PersistenceContext;
+@Repository
 public class FactureDAOimpl implements IfactureDAO{
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("unit_factures");
-    EntityManager em = emf.createEntityManager();
+    @PersistenceContext
+    EntityManager em ;
 
 
     public FactureDAOimpl() {
@@ -26,12 +29,10 @@ public class FactureDAOimpl implements IfactureDAO{
 
     @Override
     public Facture update(long idF,double amount) {
-        em.getTransaction().begin();
         Facture currentFacture =
         em.find(Facture.class,idF);
         currentFacture.setAmount(amount);
         em.persist(currentFacture);
-        em.getTransaction().commit();
         return null;
     }
     @Override

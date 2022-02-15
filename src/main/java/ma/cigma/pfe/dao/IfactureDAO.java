@@ -1,6 +1,8 @@
 package ma.cigma.pfe.dao;
 
 import ma.cigma.pfe.models.Facture;
+import org.springframework.stereotype.Repository;
+
 
 public interface IfactureDAO {
 
