@@ -20,7 +20,7 @@ public class Client {
     String tel;
     @Enumerated(EnumType.STRING)
     Genre genre;
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "client")
      @JoinColumn
     List<Adresse> adresse;
 
