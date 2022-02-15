@@ -19,5 +19,13 @@ public class Adresse {
     String avenue;
     String ville;
     String pays;
+    @OneToOne(mappedBy = "adresse")
+    Client client;
 
+    public Adresse(long id, String avenue, String ville, String pays) {
+        this.id = id;
+        this.avenue = avenue;
+        this.ville = ville;
+        this.pays = pays;
+    }
 }

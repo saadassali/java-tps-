@@ -15,7 +15,7 @@ public class ClientDAO implements IClientDAO{
     public Client save(Client c) {
 
         em.getTransaction().begin();
-        em.refresh(c);
+        em.merge(c);
         em.getTransaction().commit();
 
 

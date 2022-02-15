@@ -20,10 +20,10 @@ public class ApplicationRunner {
                 context.getBean("controller");
         Client c =new Client(1,"assali",
                 "saad","0707109204"
-//                ,
-//                Genre.m,
-//                new Adresse(1,"zine salame",
-//                "casa","maroc")
+                ,
+                Genre.m,
+                new Adresse(1,"zine salame",
+                "casa","maroc")
         );
         ClientController cCtrl=(ClientController) context.getBean("Clientcontroller");
 
