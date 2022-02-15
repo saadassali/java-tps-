@@ -3,6 +3,7 @@ package ma.cigma.pfe.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -19,7 +20,19 @@ public class Client {
     String tel;
     @Enumerated(EnumType.STRING)
     Genre genre;
-    @OneToOne(cascade = CascadeType.ALL)
-    Adresse adresse;
+    @OneToMany(cascade = CascadeType.PERSIST)
+     @JoinColumn
+    List<Adresse> adresse;
+
+    public Client(String nom, String prenom, String tel, Genre genre) {
+
+        this.nom = nom;
+        this.prenom = prenom;
+        this.tel = tel;
+        this.genre = genre;
+
+
+    }
+
 
 }

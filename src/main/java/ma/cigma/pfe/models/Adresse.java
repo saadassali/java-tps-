@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -19,13 +20,14 @@ public class Adresse {
     String avenue;
     String ville;
     String pays;
-    @OneToOne(mappedBy = "adresse")
+    @ManyToOne (cascade = CascadeType.PERSIST)
+    @JoinColumn
     Client client;
 
-    public Adresse(long id, String avenue, String ville, String pays) {
-        this.id = id;
+    public Adresse( String avenue, String ville, String pays) {
         this.avenue = avenue;
         this.ville = ville;
         this.pays = pays;
+
     }
 }

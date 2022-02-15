@@ -9,7 +9,9 @@ import ma.cigma.pfe.models.Genre;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class ApplicationRunner {
     public static void main(String[] args) {
@@ -18,18 +20,23 @@ public class ApplicationRunner {
                 ClassPathXmlApplicationContext("spring.xml");
         FactureController fctrl = (FactureController)
                 context.getBean("controller");
-        Client c =new Client(1,"assali",
-                "saad","0707109204"
-                ,
-                Genre.m,
-                new Adresse(1,"zine salame",
-                "casa","maroc")
-        );
+        List<Adresse> adresseList=new ArrayList<Adresse>();
+        adresseList.add(new Adresse("zine salame",
+                "casa","maroc"));
+
+        adresseList.add(new Adresse("hay riyad",
+                "raba","maroc"));
+        Client c1 =new Client("assali",
+                "saad","0707109204", Genre.m);
+        Client c2 =new Client("ahmed",
+                "assali","0561238456"   , Genre.m        );
         ClientController cCtrl=(ClientController) context.getBean("Clientcontroller");
+        c1.setAdresse(adresseList);
 
-        c= cCtrl.save(c);
+        c1= cCtrl.save(c1);
+        c2= cCtrl.save(c2);
 
-        c.toString();
+        c1.toString();
 
 
     }
