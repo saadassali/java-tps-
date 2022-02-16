@@ -3,6 +3,7 @@ package ma.cigma.pfe.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -20,16 +21,14 @@ public class Client {
     String tel;
     @Enumerated(EnumType.STRING)
     Genre genre;
-    @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "client")
-    List<Adresse> adresse;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "client")
+    List<Adresse> adresse=new ArrayList<Adresse>();
 
     public Client(String nom, String prenom, String tel, Genre genre) {
-
         this.nom = nom;
         this.prenom = prenom;
         this.tel = tel;
         this.genre = genre;
-
 
     }
 

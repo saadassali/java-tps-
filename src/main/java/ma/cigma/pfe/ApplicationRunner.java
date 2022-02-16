@@ -18,21 +18,23 @@ public class ApplicationRunner {
         System.out.println("hello world");
         ApplicationContext context= new
                 ClassPathXmlApplicationContext("spring.xml");
-        FactureController fctrl = (FactureController)
-                context.getBean("factureCtrl");
-        List<Adresse> adresseList=new ArrayList<Adresse>();
-        adresseList.add(new Adresse("zine salame",
-                "casa","maroc"));
 
-        adresseList.add(new Adresse("hay riyad",
-                "raba","maroc"));
+        List<Adresse> adresseList=new ArrayList<Adresse>();
+
+
         Client c1 =new Client("assali",
-                "saad","0707109204", Genre.m);
+                "saad","0707109204",Genre.m);
         Client c2 =new Client("ahmed",
-                "assali","0561238456"   , Genre.m        );
+                "assali","0561238456",Genre.m);
+        c1.toString();
+        adresseList.add(new Adresse("zine salame","casa","maroc",c1));
+
+        adresseList.add(new Adresse("hay riyad","raba","maroc",c1));
+
+
+
         ClientController cCtrl=(ClientController) context.getBean("clientCtrl");
         c1.setAdresse(adresseList);
-
         c1= cCtrl.save(c1);
         c2= cCtrl.save(c2);
 

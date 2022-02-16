@@ -20,14 +20,15 @@ public class Adresse {
     String avenue;
     String ville;
     String pays;
-    @ManyToOne (cascade = CascadeType.PERSIST)
-    @JoinColumn
+    @ManyToOne
+    @JoinColumn(name = "client_id")
     Client client;
 
-    public Adresse( String avenue, String ville, String pays) {
+    public Adresse( String avenue, String ville, String pays,Client c) {
         this.avenue = avenue;
         this.ville = ville;
         this.pays = pays;
+        client=c;
 
     }
 }

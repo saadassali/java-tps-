@@ -9,6 +9,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 @Repository
+
+
 public class FactureDAOimpl implements IfactureDAO{
     @PersistenceContext
     EntityManager em ;
@@ -37,18 +39,14 @@ public class FactureDAOimpl implements IfactureDAO{
     }
     @Override
     public void deleteById(long idFacture) {
-        em.getTransaction().begin();
         Facture clientInDataBase = em.find(Facture.class,idFacture);
         System.out.println(clientInDataBase.toString());
         em.remove(clientInDataBase);
-        em.getTransaction().commit();
     }
     @Override
     public Facture save(Facture f) {
 
-        em.getTransaction().begin();
         em.persist(f);
-        em.getTransaction().commit();
 
 
         return null;

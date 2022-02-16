@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 @NoArgsConstructor
 @Service
 @Transactional
+
 public class ClientService implements IClientService
 {
     @Autowired
