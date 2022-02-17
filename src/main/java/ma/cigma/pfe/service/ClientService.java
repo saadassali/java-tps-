@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -22,8 +24,29 @@ public class ClientService implements IClientService
     @Autowired
     IClientDAO cDAO;
     @Override
-    public Client save(Client c) {
+    @Transactional
+    public Client save(Client clt) {
+        return cDAO.save(clt);
+    }
+    @Override
+    @Transactional
+    public Client modify(Client newClt) {
+        Client oldClt = cDAO.findById(newClt.getId()).get();
+        oldClt.setNom(newClt.getNom());
 
-        return cDAO.save(c);
+        return cDAO.save(oldClt);
+    }
+    @Override
+    @Transactional
+    public void remove(long idClt) {
+        cDAO.deleteById(idClt);
+    }
+    @Override
+    public Client getOne(long idClt) {
+        return cDAO.findById(idClt).get();
+    }
+    @Override
+    public List<Client> getAll() {
+        return (List<Client>) cDAO.findAll();
     }
 }

@@ -3,18 +3,17 @@ package ma.cigma.pfe.models;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
 @ToString
 @Inheritance(strategy = InheritanceType.JOINED)
-
-public class Client {
+@Data
+public class Client implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     long id;

@@ -38,12 +38,12 @@ public class FactureServiceimpl implements IFactureService {
     @Override
     public Facture findById(long idFacture) {
 
-        return fdao.findById(idFacture);
+        return fdao.findById(idFacture).get();
     }
 
     @Override
     public Facture update(long newFacture,double amount) {
-        fdao.update(newFacture,amount);
+//        fdao.save(newFacture,amount);
         return null;
     }
 }
