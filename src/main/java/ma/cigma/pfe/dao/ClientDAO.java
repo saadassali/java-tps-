@@ -1,5 +1,6 @@
 package ma.cigma.pfe.dao;
 
+import lombok.Data;
 import ma.cigma.pfe.models.Client;
 import ma.cigma.pfe.models.Facture;
 import org.springframework.stereotype.Repository;
@@ -18,7 +19,7 @@ EntityManager emClient;
     @Override
     public Client save(Client c) {
 
-        emClient.merge(c);
+        emClient.persist(c);
 
 
         return c;

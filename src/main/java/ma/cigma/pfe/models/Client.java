@@ -12,6 +12,8 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
+@Inheritance(strategy = InheritanceType.JOINED)
+
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
