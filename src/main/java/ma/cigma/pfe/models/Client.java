@@ -20,8 +20,6 @@ public class Client implements Serializable {
     String nom;
     String prenom;
     String tel;
-    @Enumerated(EnumType.STRING)
-    Genre genre;
 
     public Client(String nom)
     {
@@ -31,7 +29,6 @@ public class Client implements Serializable {
         this.nom = nom;
         this.prenom = prenom;
         this.tel = tel;
-        this.genre = genre;
 
     }
 
