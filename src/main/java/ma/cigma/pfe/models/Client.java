@@ -22,9 +22,11 @@ public class Client implements Serializable {
     String tel;
     @Enumerated(EnumType.STRING)
     Genre genre;
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "client")
-    List<Adresse> adresse=new ArrayList<Adresse>();
 
+    public Client(String nom)
+    {
+        this.nom=nom;
+    }
     public Client(String nom, String prenom, String tel, Genre genre) {
         this.nom = nom;
         this.prenom = prenom;

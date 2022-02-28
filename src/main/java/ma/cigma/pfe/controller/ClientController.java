@@ -9,6 +9,7 @@ import ma.cigma.pfe.service.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,7 +18,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Transactional
-@Controller("clientCtrl")
+@RestController
+@RequestMapping("/client")
 public class ClientController {
     @Autowired
     IClientService cs;
@@ -26,15 +28,19 @@ public class ClientController {
     public Client save(Client clt) {
         return cs.save(clt);
     }
-    public Client modify(Client clt) {
+    @PutMapping
+    public Client modify(@RequestBody Client clt) {
         return cs.modify(clt);
     }
-    public void remove(long idClt) {
+    @DeleteMapping("/{id}")
+    public void remove(@PathVariable("id") long idClt) {
         cs.remove(idClt);
     }
-    public Client getOne(long idClt) {
+    @GetMapping("/{id}")
+    public Client getOne(@PathVariable("id") long idClt) {
         return cs.getOne(idClt);
     }
+    @GetMapping("/all")
     public List<Client> getAll() {
         return cs.getAll();
     }

@@ -17,7 +17,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Service
-@Transactional
 
 public class ClientService implements IClientService
 {
